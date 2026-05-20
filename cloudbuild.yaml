@@ -23,3 +23,6 @@ steps:
 images:
 - 'europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-backend:latest'
 - 'europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-frontend:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
