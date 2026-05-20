@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kubernetes Voting App</title>
+</head>
+<body>
+
+<h1>Frontend Pod</h1>
+
+<button onclick="vote('Option A')">Vote A</button>
+<button onclick="vote('Option B')">Vote B</button>
+
+<button onclick="results()">Show Results</button>
+
+<p id="output"></p>
+
+<script>
+
+function vote(option) {
+
+    fetch("http://localhost:30000/api/vote", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            option: option
+        })
+
+    })
+
+    .then(r => r.json())
+    .then(d => {
+        document.getElementById("output").innerText = d.message;
+    });
+}
+
+function results() {
+
+    fetch("http://localhost:30000/api/results")
+
+    .then(r => r.json())
+
+    .then(d => {
+        document.getElementById("output").innerText =
+            JSON.stringify(d);
+    });
+}
+
+</script>
+
+</body>
+</html>
