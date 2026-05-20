@@ -3,25 +3,25 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/lab-docker-repo/voting-backend:latest'
+      - 'europe-west1-docker.pkg.dev/$Laborator4-CI-CD-DO/lab-docker-repo/voting-backend:latest'
       - './backend'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/lab-docker-repo/voting-frontend:latest'
+      - 'europe-west1-docker.pkg.dev/$Laborator4-CI-CD-DO/lab-docker-repo/voting-frontend:latest'
       - './frontend'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/lab-docker-repo/voting-backend:latest'
+      - 'europe-west1-docker.pkg.dev/$Laborator4-CI-CD-DO/lab-docker-repo/voting-backend:latest'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/lab-docker-repo/voting-frontend:latest'
+      - 'europe-west1-docker.pkg.dev/$Laborator4-CI-CD-DO/lab-docker-repo/voting-frontend:latest'
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -32,7 +32,7 @@ steps:
       - '--region'
       - 'europe-west1'
       - '--project'
-      - '$PROJECT_ID'
+      - '$Laborator4-CI-CD-DO'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
@@ -44,5 +44,5 @@ steps:
       - 'CLOUDSDK_CONTAINER_CLUSTER=lab-gke-cluster'
 
 images:
-  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/lab-docker-repo/voting-backend:latest'
-  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/lab-docker-repo/voting-frontend:latest'
+  - 'europe-west1-docker.pkg.dev/$Laborator4-CI-CD-DO/lab-docker-repo/voting-backend:latest'
+  - 'europe-west1-docker.pkg.dev/$Laborator4-CI-CD-DO/lab-docker-repo/voting-frontend:latest'
