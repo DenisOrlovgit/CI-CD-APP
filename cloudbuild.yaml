@@ -20,6 +20,12 @@ steps:
   - 'CLOUDSDK_COMPUTE_REGION=europe-west1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=lab4-gke-cluster'
 
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['rollout', 'restart', 'deployment/frontend-deployment', 'deployment/backend-deployment']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=europe-west1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=lab4-gke-cluster'
+
 images:
 - 'europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-backend:latest'
 - 'europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-frontend:latest'
