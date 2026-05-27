@@ -17,36 +17,28 @@
 <script>
 
 function vote(option) {
-
     fetch("http://34.77.149.99:5000/api/vote", {
-
         method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            option: option
-        })
-
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ option: option })
     })
-
     .then(r => r.json())
     .then(d => {
         document.getElementById("output").innerText = d.message;
+    })
+    .catch(e => {
+        document.getElementById("output").innerText = "Eroare: " + e;
     });
 }
 
 function results() {
-
     fetch("http://34.77.149.99:5000/api/results")
-
     .then(r => r.json())
-
     .then(d => {
-        document.getElementById("output").innerText =
-            JSON.stringify(d);
+        document.getElementById("output").innerText = JSON.stringify(d);
+    })
+    .catch(e => {
+        document.getElementById("output").innerText = "Eroare: " + e;
     });
 }
 
