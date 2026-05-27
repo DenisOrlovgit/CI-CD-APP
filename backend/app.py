@@ -51,6 +51,7 @@ def vote():
     conn.commit()
     conn.close()
 
+
     return jsonify({"message": "Vote saved!"})
 
 @app.route("/api/results")
