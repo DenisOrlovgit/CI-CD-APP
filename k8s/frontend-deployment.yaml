@@ -17,9 +17,9 @@ spec:
         app: frontend
 
     spec:
-    containers:
-      - name: frontend
-        image: europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-frontend:latest
-        imagePullPolicy: Always
-        ports:
-          - containerPort: 80
+      containers:
+        - name: frontend
+          image: europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
