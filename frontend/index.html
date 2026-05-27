@@ -18,7 +18,7 @@
 
 function vote(option) {
 
-    fetch("http://localhost:30000/api/vote", {
+    fetch("http://34.53.230.11:5000/api/vote", {
 
         method: "POST",
 
@@ -40,7 +40,7 @@ function vote(option) {
 
 function results() {
 
-    fetch("http://localhost:30000/api/results")
+    fetch("http://34.53.230.11:5000/api/results")
 
     .then(r => r.json())
 
