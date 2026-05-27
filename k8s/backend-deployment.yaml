@@ -17,13 +17,9 @@ spec:
         app: backend
 
     spec:
-      containers:
-
+    containers:
       - name: backend
-
-        image: voting-backend
-
-        imagePullPolicy: Never
-
+        image: europe-west1-docker.pkg.dev/laborator4-ci-cd-do/lab4-docker-repo/voting-backend:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+          - containerPort: 5000
